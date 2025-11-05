@@ -3,10 +3,8 @@ name: Hello World Workflow
 on:
   push:
     branches:
-      - local
-      - team2
-      - team3
-      
+      - '**'   # Matches all branches
+
 jobs:
   say-hello:
     runs-on: ubuntu-latest

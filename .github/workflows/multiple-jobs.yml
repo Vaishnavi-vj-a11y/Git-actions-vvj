@@ -3,7 +3,7 @@ name: Multiple Jobs Workflow
 on:
   push:
     branches:
-      - '**'   # Runs on any branch
+      - '**'
 
 jobs:
   build:
@@ -16,3 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test Step
+        run: echo "Running tests..."

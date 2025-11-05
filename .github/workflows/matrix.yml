@@ -1,0 +1,16 @@
+name: Matrix Build Workflow
+
+on:
+  push:
+    branches:
+      - '**'   # Runs on any branch
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Print OS Info
+        run: echo "Running on ${{ matrix.os }}"

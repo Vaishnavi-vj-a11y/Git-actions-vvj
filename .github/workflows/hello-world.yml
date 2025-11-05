@@ -6,7 +6,7 @@ on:
       - local
       - team2
       - team3
-
+      
 jobs:
   say-hello:
     runs-on: ubuntu-latest

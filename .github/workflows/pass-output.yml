@@ -1,0 +1,23 @@
+name: Pass Output Between Jobs
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      current_date: ${{ steps.get_date.outputs.date }}
+    steps:
+      - name: Get current date
+        id: get_date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Print date from Job1
+        run: |
+          echo "The date is ${{ needs.job1.outputs.current_date }}"
